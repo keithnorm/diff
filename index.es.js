@@ -89,6 +89,7 @@ function DiffArray(path, index, item) {
 inherits(DiffArray, Diff);
 
 function arrayRemove(arr, from, to) {
+  if (arr.length <= from) return arr;
   var rest = arr.slice((to || from) + 1 || arr.length);
   arr.length = from < 0 ? arr.length + from : from;
   arr.push.apply(arr, rest);
