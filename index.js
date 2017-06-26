@@ -264,7 +264,7 @@ function applyChange(target, source, change) {
       last = change.path ? change.path.length - 1 : 0;
     while (++i < last) {
       if (typeof it[change.path[i]] === 'undefined') {
-        it[change.path[i]] = (typeof change.path[i] === 'number') ? [] : {};
+        it[change.path[i]] = (typeof change.path[i] === 'number' && !change.path[i + 1]) ? [] : {};
       }
       it = it[change.path[i]];
     }
